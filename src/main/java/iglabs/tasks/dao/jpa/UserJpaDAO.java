@@ -10,7 +10,10 @@ import iglabs.tasks.entities.User;
 
 
 @Repository
-public class UserJpaDAO extends AbstractGenericJpaDAO<User> implements UserDAO {
+public class UserJpaDAO
+	extends AbstractGenericJpaDAO<User>
+	implements UserDAO {
+	
 	@Override
 	protected Class<User> getEntityClass() {
 		return User.class;

@@ -101,4 +101,18 @@ public class HttpAuthService implements AuthService {
 		
 		return tokensEqual;
 	}
+	
+	@Override
+	public void signOut(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+		Cookie nameCookie = new Cookie(NAME_KEY, null);
+		nameCookie.setPath(httpRequest.getContextPath());
+		nameCookie.setMaxAge(0);
+		
+		Cookie tokenCookie = new Cookie(TOKEN_KEY, null);
+		tokenCookie.setPath(httpRequest.getContextPath());
+		tokenCookie.setMaxAge(0);
+		
+		httpResponse.addCookie(nameCookie);
+		httpResponse.addCookie(tokenCookie);
+	}
 }
