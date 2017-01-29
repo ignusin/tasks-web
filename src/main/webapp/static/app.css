@@ -1,0 +1,25 @@
+.width-100 {
+	width: 100px;
+}
+
+.space-10 {
+	margin-top: 10px;
+}
+
+.login-container {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -110px;
+	width: 400px;
+}
+
+.register-container {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -150px;
+	width: 400px;	
+}
