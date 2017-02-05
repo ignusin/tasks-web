@@ -1,3 +1,8 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
 .width-100 {
 	width: 100px;
 }
@@ -22,4 +27,54 @@
 	margin-left: -200px;
 	margin-top: -150px;
 	width: 400px;	
+}
+
+.app-container {
+	background-color: white;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.app-container .toolbar {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 30px;
+	background-color: black;
+	color: white;
+}
+
+.app-container .toolbar a {
+	color: white;
+}
+
+.app-container .left-panel {
+	position: absolute;
+	left: 0;
+	top: 30px;
+	bottom: 0;
+	width: 25%;
+}
+
+.app-container .center-panel {
+	position: absolute;
+	left: 25%;
+	top: 30px;
+	right: 25%;
+	bottom: 0;
+	
+	border-left: 1px solid #eaeaea;
+	border-right: 1px solid #eaeaea;
+}
+
+.app-container .right-panel {
+	position: absolute;
+	left: 75%;
+	top: 30px;
+	bottom: 0;
+	right: 0;
 }
