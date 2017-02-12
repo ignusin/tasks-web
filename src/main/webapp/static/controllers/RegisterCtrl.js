@@ -3,8 +3,9 @@ angular.module('app')
 		'$scope',
 		'$http',
 		'$window',
-		'rootUrl',
-		function ($scope, $http, $window, rootUrl) {
+		'UserService',
+		'RootUrl',
+		function ($scope, $http, $window, UserService, RootUrl) {
 			$scope.authError = false;
 			
 			$scope.data = {
@@ -19,12 +20,12 @@ angular.module('app')
 					return;
 				}
 				
-				$http.post(rootUrl + '/api/guest/register', $scope.data)
+				UserService.register($scope.data)
 					.then(function () {
-						$window.location.href = rootUrl + '/login';
+						$window.location.href = RootUrl + '/login';
 					})
-					.catch (function (res) {
-						$scope.errorMessage = res.data.message;
+					.catch(function (message) {
+						$scope.errorMessage = message;
 					});
 			};
 			

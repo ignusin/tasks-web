@@ -5,6 +5,7 @@ import iglabs.tasks.entities.IdentityEntity;
 
 public interface GenericDAO<T extends IdentityEntity> {
 	void add(T entity);
+	void addOrUpdate(T entity);
 	void update(T entity);
 	void remove(T entity);
 	

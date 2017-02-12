@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="<c:url value="/static/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" />" />
 <link rel="stylesheet" href="<c:url value="/static/libs/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" />" />
 
+<link rel="stylesheet" href="<c:url value="/static/libs/font-awesome-4.7.0/css/font-awesome.min.css" />" />
+
 <script src="<c:url value="/static/app.js" />"></script>
 <link rel="stylesheet" href="<c:url value="/static/app.css" />" />
 
@@ -17,6 +19,6 @@
 		var rootUrl = '<c:url value="/" />';
 		rootUrl = rootUrl.substr(0, rootUrl.length - 1);
 		
-		angular.module('app').constant('rootUrl', rootUrl);
+		angular.module('app').constant('RootUrl', rootUrl);
 	}) ();
 </script>

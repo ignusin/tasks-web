@@ -44,12 +44,19 @@ html, body {
 	top: 0;
 	right: 0;
 	height: 30px;
+	padding: 5px;
 	background-color: black;
 	color: white;
 }
 
 .app-container .toolbar a {
 	color: white;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.app-container .toolbar a:hover {
+	text-decoration: none;
 }
 
 .app-container .left-panel {

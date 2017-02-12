@@ -9,6 +9,7 @@
 		
 		<jsp:include page="/WEB-INF/views/scripts.jsp"></jsp:include>
 		<script src="<c:url value="/static/controllers/LoginCtrl.js" />"></script>
+		<script src="<c:url value="/static/services/UserService.js" />"></script>
 	</head>
 	<body>
 		<div class="login-container" ng-controller="LoginCtrl">

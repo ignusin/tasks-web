@@ -29,6 +29,16 @@ public abstract class AbstractGenericJpaDAO<T extends IdentityEntity>
 	}
 
 	@Override
+	public void addOrUpdate(T entity) {
+		if (entity.getId() == null) {
+			add(entity);
+		}
+		else {
+			update(entity);
+		}
+	}
+	
+	@Override
 	public void update(T entity) {
 		getEntityManager().merge(entity);
 	}

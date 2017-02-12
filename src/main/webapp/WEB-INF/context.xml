@@ -34,6 +34,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<bean class="iglabs.tasks.dozer.DozerBeanMapperBeanFactory"></bean>
+	
 	<context:component-scan base-package="iglabs.tasks" />
 	<mvc:default-servlet-handler/>
 	<mvc:annotation-driven />

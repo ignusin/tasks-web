@@ -17,6 +17,8 @@ import iglabs.tasks.entities.User;
 
 @Component
 public class HttpAuthService implements AuthService {
+	private final static String USER_ATTR_NAME = "tasks-current-user";
+	
 	private final static String NAME_KEY = "tasks-name";
 	private final static String TOKEN_KEY = "tasks-token";
 
@@ -44,6 +46,26 @@ public class HttpAuthService implements AuthService {
 		catch (Exception ex) {
 			throw new RuntimeException(ex);
 		}
+	}
+	
+	@Override
+	public int getUserId(HttpServletRequest httpRequest) {
+		User user = (User)httpRequest.getAttribute(USER_ATTR_NAME);
+		if (user == null) {
+			throw new IllegalStateException("Call isAuthenticated() first.");
+		}
+		
+		return user.getId();
+	}
+	
+	@Override
+	public String getUserName(HttpServletRequest httpRequest) {
+		User user = (User)httpRequest.getAttribute(USER_ATTR_NAME);
+		if (user == null) {
+			throw new IllegalStateException("Call isAuthenticated() first.");
+		}
+		
+		return user.getName();
 	}
 	
 	@Override
@@ -98,6 +120,10 @@ public class HttpAuthService implements AuthService {
 		
 		String calculatedToken = md5hash(user.getName() + ":" + user.getPassword());
 		boolean tokensEqual = StringUtils.equals(calculatedToken, tokenCookie.getValue());
+		
+		if (tokensEqual) {
+			httpRequest.setAttribute(USER_ATTR_NAME, user);
+		}
 		
 		return tokensEqual;
 	}
