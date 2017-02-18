@@ -7,6 +7,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import iglabs.tasks.dao.GenericDAO;
 import iglabs.tasks.entities.IdentityEntity;
 
@@ -23,11 +25,13 @@ public abstract class AbstractGenericJpaDAO<T extends IdentityEntity>
 	
 	protected abstract Class<T> getEntityClass();
 	
+	@Transactional
 	@Override
 	public void add(T entity) {
 		getEntityManager().persist(entity);
 	}
 
+	@Transactional
 	@Override
 	public void addOrUpdate(T entity) {
 		if (entity.getId() == null) {
@@ -38,16 +42,19 @@ public abstract class AbstractGenericJpaDAO<T extends IdentityEntity>
 		}
 	}
 	
+	@Transactional
 	@Override
 	public void update(T entity) {
 		getEntityManager().merge(entity);
 	}
 
+	@Transactional
 	@Override
 	public void remove(T entity) {
 		getEntityManager().remove(entity);
 	}
 
+	@Transactional
 	@Override
 	public List<T> list() {
 		EntityManager em = getEntityManager();
@@ -59,6 +66,7 @@ public abstract class AbstractGenericJpaDAO<T extends IdentityEntity>
 		return em.createQuery(query).getResultList();
 	}
 
+	@Transactional
 	@Override
 	public T find(int id) {
 		return getEntityManager().find(getEntityClass(), id);

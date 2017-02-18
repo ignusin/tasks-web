@@ -1,8 +1,9 @@
 angular.module('app')
 	.controller('AddProjectCtrl', [
+		'$rootScope',
 		'$scope',
 		'ProjectService',
-		function ($scope, ProjectService) {
+		function ($rootScope, $scope, ProjectService) {
 			$scope.errorMessage = null;
 			
 			var __submit = function () {
@@ -13,6 +14,7 @@ angular.module('app')
 				ProjectService
 					.addOrUpdate($scope.data)
 					.then(function (project) {
+						$rootScope.$broadcast('projects.modified');
 						$scope.$close(project);
 					})
 					.catch(function (message) {

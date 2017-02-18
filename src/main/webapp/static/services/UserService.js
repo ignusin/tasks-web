@@ -46,9 +46,24 @@ angular.module('app')
 				return promise;
 			};
 			
+			var __getCurrentUser = function () {
+				var promise = $q(function (resolve, reject) {
+					$http.get(RootUrl + '/api/user/current')
+						.then(function (res) {
+							resolve(res.data);
+						})
+						.catch(function (res) {
+							reject(res.data.message);
+						});
+				});
+				
+				return promise;
+			};
+			
 			return {
 				register: __register,
 				authenticate: __authenticate,
+				getCurrentUser: __getCurrentUser,
 				logout: __logout
 			};
 		}

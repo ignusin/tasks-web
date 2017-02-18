@@ -5,14 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import iglabs.tasks.dto.ResultDTO;
+import iglabs.tasks.dto.ExceptionDTO;
 
 
 public class ApiController {
 	@ExceptionHandler(Exception.class)
-	public @ResponseBody ResultDTO<Exception> handleException(HttpServletResponse response, Exception ex) {
+	public @ResponseBody ExceptionDTO handleException(HttpServletResponse response, Exception ex) {
 		response.setStatus(500);
 		
-		return ResultDTO.error(ex.getMessage(), ex);
+		return new ExceptionDTO(ex.getMessage(), ex);
 	}
 }

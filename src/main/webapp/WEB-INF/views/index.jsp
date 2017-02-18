@@ -9,8 +9,12 @@
 	
 	<jsp:include page="/WEB-INF/views/scripts.jsp"></jsp:include>
 	
+	<!-- Init -->
+	<script src="<c:url value="/static/init/AppInit.js" />"></script>
+	
 	<!-- Controllers -->
 	<script src="<c:url value="/static/controllers/AddProjectCtrl.js" />"></script>
+	<script src="<c:url value="/static/controllers/LeftPanelCtrl.js" />"></script>
 	<script src="<c:url value="/static/controllers/ToolbarCtrl.js" />"></script>
 	
 	<!-- Services -->
@@ -25,6 +29,7 @@
 		</div>
 		
 		<div class="left-panel">
+			<ng-include src="'<c:url value="/template/left-panel" />'" />
 		</div>
 		
 		<div class="center-panel">

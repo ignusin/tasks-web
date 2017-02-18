@@ -4,6 +4,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import iglabs.tasks.dao.UserDAO;
 import iglabs.tasks.entities.User;
@@ -19,6 +20,7 @@ public class UserJpaDAO
 		return User.class;
 	}
 	
+	@Transactional
 	@Override
 	public User findByName(String name) {
 		TypedQuery<User> query = getEntityManager()

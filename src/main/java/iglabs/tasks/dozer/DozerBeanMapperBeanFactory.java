@@ -12,6 +12,7 @@ public class DozerBeanMapperBeanFactory implements FactoryBean<Mapper>, Initiali
 	public void afterPropertiesSet() {
 		mapper = new DozerBeanMapper();
 		mapper.addMapping(new ProjectDTOMapping());
+		mapper.addMapping(new UserDTOMapping());
 	}
 	
 	@Override

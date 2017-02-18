@@ -3,15 +3,15 @@ package iglabs.tasks.dozer;
 import org.dozer.loader.api.BeanMappingBuilder;
 import org.dozer.loader.api.TypeMappingOptions;
 
-import iglabs.tasks.dto.ProjectDTO;
-import iglabs.tasks.entities.Project;
+import iglabs.tasks.dto.UserDTO;
+import iglabs.tasks.entities.User;
 
-public class ProjectDTOMapping extends BeanMappingBuilder {
+public class UserDTOMapping extends BeanMappingBuilder {
 	@Override
 	protected void configure() {
 		mapping(
-			ProjectDTO.class,
-			Project.class,
+			UserDTO.class,
+			User.class,
 			TypeMappingOptions.mapNull(),
 			TypeMappingOptions.mapEmptyString()
 		);
