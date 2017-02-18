@@ -13,8 +13,9 @@
 	<script src="<c:url value="/static/init/AppInit.js" />"></script>
 	
 	<!-- Controllers -->
-	<script src="<c:url value="/static/controllers/AddProjectCtrl.js" />"></script>
 	<script src="<c:url value="/static/controllers/LeftPanelCtrl.js" />"></script>
+	<script src="<c:url value="/static/controllers/ProjectFormCtrl.js" />"></script>
+	<script src="<c:url value="/static/controllers/TaskFormCtrl.js" />"></script>
 	<script src="<c:url value="/static/controllers/ToolbarCtrl.js" />"></script>
 	
 	<!-- Services -->
@@ -24,7 +25,8 @@
 <body>
 	<div class="app-container">
 		<div class="toolbar" ng-controller="ToolbarCtrl">
-			<a href ng-click="addProject()"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Project</a>
+			<a href ng-click="addTask()"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Task</a>
+			<a href ng-click="addProject()"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Add Project</a>
 			<a href ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
 		</div>
 		

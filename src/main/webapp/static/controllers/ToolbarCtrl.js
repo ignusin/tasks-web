@@ -8,8 +8,15 @@ angular.module('app')
 		function ($scope, $uibModal, $window, UserService, RootUrl) {
 			var __addProject = function () {
 				$uibModal.open({
-					controller: 'AddProjectCtrl',
-					templateUrl: RootUrl + '/template/add-project'
+					controller: 'ProjectFormCtrl',
+					templateUrl: RootUrl + '/template/project-form'
+				});
+			};
+			
+			var __addTask = function () {
+				$uibModal.open({
+					controller: 'TaskFormCtrl',
+					templateUrl: RootUrl + '/template/task-form'
 				});
 			};
 			
@@ -21,6 +28,7 @@ angular.module('app')
 			};
 			
 			$scope.addProject = __addProject;
+			$scope.addTask = __addTask;
 			$scope.logout = __logout;
 		}
 	]);

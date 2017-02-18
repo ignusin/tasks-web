@@ -1,5 +1,5 @@
 angular.module('app')
-	.controller('AddProjectCtrl', [
+	.controller('ProjectFormCtrl', [
 		'$rootScope',
 		'$scope',
 		'ProjectService',
