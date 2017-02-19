@@ -1,12 +1,19 @@
 angular.module('app')
 	.run([
-		'$rootScope',
-		'UserService',
-		function ($rootScope, UserService) {
-			UserService
+		'DataModelManager',
+		'ProjectRemoteService',
+		'UserRemoteService',
+		function (DataModelManager, ProjectRemoteService, UserRemoteService) {
+			UserRemoteService
 				.getCurrentUser()
 				.then(function (user) {
-					$rootScope.currentUser = user;
+					DataModelManager.setCurrentUser(user);
+				});
+			
+			ProjectRemoteService
+				.list()
+				.then(function (projects) {
+					DataModelManager.setProjects(projects);
 				});
 		}
 	]);

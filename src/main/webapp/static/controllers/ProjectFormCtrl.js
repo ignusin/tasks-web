@@ -1,9 +1,9 @@
 angular.module('app')
 	.controller('ProjectFormCtrl', [
-		'$rootScope',
 		'$scope',
-		'ProjectService',
-		function ($rootScope, $scope, ProjectService) {
+		'DataModelManager',
+		'ProjectRemoteService',
+		function ($scope, DataModelManager, ProjectRemoteService) {
 			$scope.errorMessage = null;
 			
 			var __submit = function () {
@@ -11,10 +11,10 @@ angular.module('app')
 					return;
 				}
 				
-				ProjectService
+				ProjectRemoteService
 					.addOrUpdate($scope.data)
 					.then(function (project) {
-						$rootScope.$broadcast('projects.modified');
+						DataModelManager.addProject(project);
 						$scope.$close(project);
 					})
 					.catch(function (message) {

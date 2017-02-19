@@ -3,9 +3,9 @@ angular.module('app')
 		'$scope',
 		'$http',
 		'$window',
-		'UserService',
+		'UserRemoteService',
 		'RootUrl',
-		function ($scope, $http, $window, UserService, RootUrl) {
+		function ($scope, $http, $window, UserRemoteService, RootUrl) {
 			$scope.authError = false;
 			
 			$scope.data = {
@@ -20,7 +20,8 @@ angular.module('app')
 					return;
 				}
 				
-				UserService.authenticate($scope.data)
+				UserRemoteService
+					.authenticate($scope.data)
 					.then(function () {
 						$window.location.href = RootUrl + '/';
 					})

@@ -1,5 +1,5 @@
 angular.module('app')
-	.factory('ProjectService', [
+	.factory('ProjectRemoteService', [
 		'$http',
 		'$q',
 		'RootUrl',

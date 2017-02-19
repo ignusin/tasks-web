@@ -19,8 +19,10 @@
 	<script src="<c:url value="/static/controllers/ToolbarCtrl.js" />"></script>
 	
 	<!-- Services -->
-	<script src="<c:url value="/static/services/ProjectService.js" />"></script>
-	<script src="<c:url value="/static/services/UserService.js" />"></script>
+	<script src="<c:url value="/static/services/DataModel.js" />"></script>
+	<script src="<c:url value="/static/services/DataModelManager.js" />"></script>
+	<script src="<c:url value="/static/services/ProjectRemoteService.js" />"></script>
+	<script src="<c:url value="/static/services/UserRemoteService.js" />"></script>
 </head>
 <body>
 	<div class="app-container">

@@ -9,7 +9,7 @@
 		
 		<jsp:include page="/WEB-INF/views/scripts.jsp"></jsp:include>
 		<script src="<c:url value="/static/controllers/RegisterCtrl.js" />"></script>
-		<script src="<c:url value="/static/services/UserService.js" />"></script>
+		<script src="<c:url value="/static/services/UserRemoteService.js" />"></script>
 	</head>
 	<body>
 		<div class="register-container" ng-controller="RegisterCtrl">

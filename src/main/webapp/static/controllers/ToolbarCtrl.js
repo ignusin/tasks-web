@@ -3,9 +3,9 @@ angular.module('app')
 		'$scope',
 		'$uibModal',
 		'$window',
-		'UserService',
+		'UserRemoteService',
 		'RootUrl',
-		function ($scope, $uibModal, $window, UserService, RootUrl) {
+		function ($scope, $uibModal, $window, UserRemoteService, RootUrl) {
 			var __addProject = function () {
 				$uibModal.open({
 					controller: 'ProjectFormCtrl',
@@ -21,7 +21,8 @@ angular.module('app')
 			};
 			
 			var __logout = function () {
-				UserService.logout()
+				UserRemoteService
+					.logout()
 					.then(function () {
 						$window.location.href = RootUrl + '/login';
 					});

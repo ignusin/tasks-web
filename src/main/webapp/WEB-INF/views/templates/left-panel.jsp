@@ -2,9 +2,9 @@
 
 <div ng-controller="LeftPanelCtrl" ng-init="init()">
 	<div>
-		<select class="form-control"
-			ng-model="filterData.projectId"
+		<select class="form-control" ng-model="filterData.projectId"
 			ng-options="project.id as project.name for project in projects">
+			<option value="">All Projects</option>
 		</select>
 	</div>
 	<div>
