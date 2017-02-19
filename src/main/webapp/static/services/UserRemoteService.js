@@ -60,11 +60,26 @@ angular.module('app')
 				return promise;
 			};
 			
+			var __list = function () {
+				var promise = $q(function (resolve, reject) {
+					$http.get(RootUrl + '/api/user/')
+						.then(function (res) {
+							resolve(res.data);
+						})
+						.catch(function (res) {
+							reject(res.data.message);
+						});
+				});
+				
+				return promise;
+			};
+			
 			return {
 				register: __register,
 				authenticate: __authenticate,
+				logout: __logout,
 				getCurrentUser: __getCurrentUser,
-				logout: __logout
+				list: __list
 			};
 		}
 	]);

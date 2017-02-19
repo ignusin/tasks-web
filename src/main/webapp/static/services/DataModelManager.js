@@ -39,10 +39,14 @@ angular.module('app')
 				}
 			};
 			
-			// ########## Current User ##########
+			// ########## Users ##########
 			
 			var __setCurrentUser = function (user) {
 				__reassignObject(DataModel.currentUser, user);
+			};
+			
+			var __setUsers = function (users) {
+				__reassignArray(DataModel.users, users);
 			};
 			
 			
@@ -59,6 +63,8 @@ angular.module('app')
 			
 			return {
 				setCurrentUser: __setCurrentUser,
+				setUsers: __setUsers,
+				
 				setProjects: __setProjects,
 				addProject: __addProject
 			};

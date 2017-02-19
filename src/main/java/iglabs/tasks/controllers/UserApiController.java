@@ -1,5 +1,7 @@
 package iglabs.tasks.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,6 +16,7 @@ import iglabs.tasks.dao.UserDAO;
 import iglabs.tasks.dto.UserDTO;
 import iglabs.tasks.entities.User;
 import iglabs.tasks.services.AuthService;
+import iglabs.tasks.utils.MapperUtils;
 
 @Controller
 @RequestMapping("/api/user")
@@ -27,6 +30,12 @@ public class UserApiController extends ApiController {
 	@Autowired
 	private Mapper mapper;
 	
+	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public @ResponseBody List<UserDTO> list() {
+		List<User> users = userDAO.list();
+		return MapperUtils.mapList(mapper, users, UserDTO.class);
+	}
 	
 	@RequestMapping(value="/current", method=RequestMethod.GET)
 	public @ResponseBody UserDTO currentUser(HttpServletRequest request) {

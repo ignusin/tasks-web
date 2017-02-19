@@ -10,6 +10,12 @@ angular.module('app')
 					DataModelManager.setCurrentUser(user);
 				});
 			
+			UserRemoteService
+				.list()
+				.then(function (users) {
+					DataModelManager.setUsers(users);
+				});
+			
 			ProjectRemoteService
 				.list()
 				.then(function (projects) {

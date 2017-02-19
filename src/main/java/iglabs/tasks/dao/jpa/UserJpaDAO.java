@@ -22,6 +22,16 @@ public class UserJpaDAO
 	
 	@Transactional
 	@Override
+	public List<User> list() {
+		TypedQuery<User> query = getEntityManager()
+			.createQuery("SELECT u FROM User u ORDER BY u.name", User.class);
+		
+		List<User> result = query.getResultList();
+		return result;
+	}
+	
+	@Transactional
+	@Override
 	public User findByName(String name) {
 		TypedQuery<User> query = getEntityManager()
 			.createQuery("SELECT u FROM User u WHERE u.name LIKE :name", User.class);
