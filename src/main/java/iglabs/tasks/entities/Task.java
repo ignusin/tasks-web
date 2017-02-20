@@ -36,6 +36,9 @@ public class Task extends IdentityEntity {
 	@Column(name="created_at", nullable=false)
 	private Timestamp createdAt;
 	
+	@Column(name="due_at", nullable=true)
+	private Timestamp dueAt;
+	
 	@Column(name="finished_at", nullable=true)
 	private Timestamp finishedAt;
 
@@ -95,6 +98,14 @@ public class Task extends IdentityEntity {
 		this.createdAt = createdAt;
 	}
 
+	public Timestamp getDueAt() {
+		return dueAt;
+	}
+	
+	public void setDueAt(Timestamp dueAt) {
+		this.dueAt = dueAt;
+	}
+	
 	public Timestamp getFinishedAt() {
 		return finishedAt;
 	}

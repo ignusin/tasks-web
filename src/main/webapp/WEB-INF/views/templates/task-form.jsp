@@ -31,6 +31,17 @@
 				ng-options="user.id as user.name for user in users" required>
 			</select>
 		</div>
+		
+		<div class="form-group" ng-class="{ 'has-error': !form.dueAt.$valid }">
+			<label>Due at:</label>
+			<div class="input-group">
+				<input type="text" ng-model="data.dueAt" name="dueAt" class="form-control"
+					uib-datepicker-popup="yyyy.MM.dd" is-open="dueAtOpened" />
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="dueAtOpened = !dueAtOpened">&nbsp;<span class="glyphicon glyphicon-calendar"></span>&nbsp;</button>
+				</span>
+			</div>
+		</div>
 	</form>
 </div>
 <div class="modal-footer">

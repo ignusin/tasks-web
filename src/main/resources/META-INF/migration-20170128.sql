@@ -36,6 +36,7 @@ create table "tasks" (
 	"assigned_to_id"	int				not null,
 	"finished"			boolean			not null,
 	"created_at"		timestamp 		not null,
+	"due_at"			timestamp		null,
 	"finished_at"		timestamp 		null
 );
 

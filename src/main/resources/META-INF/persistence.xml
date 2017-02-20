@@ -7,8 +7,10 @@
 	<persistence-unit name="TasksPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
-		<class>iglabs.tasks.entities.User</class>
 		<class>iglabs.tasks.entities.Project</class>
+		<class>iglabs.tasks.entities.RootTask</class>
+		<class>iglabs.tasks.entities.Task</class>
+		<class>iglabs.tasks.entities.User</class>
 		
 		<properties>
 			<property name="hibernate.show_sql" value="true" />
